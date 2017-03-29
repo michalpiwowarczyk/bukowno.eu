@@ -1,0 +1,28 @@
+<tr>
+	<td style="vertical-align:top;">
+		<table style="width:72px;">
+			{S_PAGE_PHOTO_TR_-5}
+			{S_PAGE_PHOTO_TR_-4}
+			{S_PAGE_PHOTO_TR_-3}
+			{S_PAGE_PHOTO_TR_-2}
+			{S_PAGE_PHOTO_TR_-1}
+		</table>
+	</td>
+	<td style="width:12px">&nbsp;</td>
+	<td style="text-align:center; width:960px;">
+		<img id="slide" src="index.php?g={POLOZENIE_ZDJECIA}" class="slideImage" width="{S_PHOTO_WIDTH}" ondragstart="return false" onselectstart="return false" oncontextmenu="return false" galleryimg="no" alt="{NAME_ZDJECIA}" title="{NAME_ZDJECIA}" usemap="#imagemap" />
+	</td>
+	<td style="width:12px">&nbsp;</td>
+	<td style="vertical-align:bottom">
+		<table style="width:72px;">
+			{S_PAGE_PHOTO_TR_1}
+			{S_PAGE_PHOTO_TR_2}
+			{S_PAGE_PHOTO_TR_3}
+			{S_PAGE_PHOTO_TR_4}
+			{S_PAGE_PHOTO_TR_5}
+			<tr>
+				<td style="text-align:center; padding:4px; height:58px; border:0px;">&nbsp;</td>
+			</tr>
+		</table>
+	</td>
+</tr>

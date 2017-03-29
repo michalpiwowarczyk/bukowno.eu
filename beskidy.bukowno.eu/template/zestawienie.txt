@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>Zestawienie zbiorcze za lata {ROK_MIN}-{ROK_MAX} r.</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">	
+	<meta name="Keywords" content="{META_SLOWA_KLUCZOWE}" />
+	<meta name="Author" content="Michal Piwowarczyk, michal.piwowarczyk@bukowno.eu" />
+	<script language="javascript" src="../js/beskidy.js"></script>
+	<style type="text/css">
+		body { background-image: url(../images/bg.gif); background-repeat: repeat-x; }
+		.gsc-control { left:10px; }
+		.gsc-results { text-align:left; }
+		.gsc-webResult { color: #7E93CC; font-weight: normal; font-size: 100%; text-align:left; }
+		.gs-webResult.gs-result a.gs-title:link { color: #E5B673; font-weight: normal; font-size: 110%; text-align:left; text-decoration: none; margin:5px;}
+		.gs-webResult.gs-result a.gs-title:link:visited { color: #E5B673; font-weight: normal; font-size: 110%; text-align:left; text-decoration: none; margin:5px;}
+	</style>
+	<script src="https://www.google.com/jsapi?key=ABQIAAAAeuUSZSHY2AogGVuf54qVYxQ5LcykpHAMDGTNhFTw9jhCaaCWZhTkSlomMBMt5E2esti-CJJO9w9PaQ" type="text/javascript"></script>
+	<script language="Javascript" type="text/javascript">
+		// google.load("search", "1");    
+		function OnLoad() {      
+			var searchControl = new google.search.SearchControl();      
+			var siteSearch = new google.search.WebSearch();
+			siteSearch.setSiteRestriction("http://beskidy.bukowno.eu");
+			siteSearch.setResultSetSize(google.search.Search.LARGE_RESULTSET );
+			searchControl.addSearcher(siteSearch);     
+			searchControl.draw(document.getElementById("searchcontrol"));      
+		}    
+		// google.setOnLoadCallback(OnLoad);
+	</script>
+</head>	
+</head>
+<body id="body">
+	<div style="width:99%;margin-left:auto;margin-right:auto;margin-bottom:10px;text-align:center;">
+		<br /><br /><br /><br />	
+		<div style="width:99%;margin-bottom:10px;text-align:center;">
+			<!-- LISTA LINKOW -->
+			<a href="../index.php" title="Góry Photo Galeria">Galeria</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="kalendarz.php" title="Kalendarz">Kalendarz</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="mapa.php" title="Google Maps track">Google Maps</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="../raporty/inne/gory.kmz" title="Google Earth KMZ KML ślad">Google Earth</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="../raporty/images/Karpaty%20(gps).jpg" title="Mapa zbiorcza">Mapa</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="rss.php" title="RSS"><img src="../images/rss.gif" style="vertical-align:middle;" border="0" alt="RSS"></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<br /><br />
+			<!-- <div id="searchcontrol" style="visibility:hidden;"></div> -->
+			{S_GOOGLE_SEARCH}
+		</div>
+		<div id="profil" style="display:none;position:absolute;left:5%;" width="96%"><img id="profil_img" src="" /></div>
+		<!-- WLASCIWA TABELA Z ZESTAWIENIEM -->
+		<table align="center" style="width:100% !important;" class="infotable" cellspacing="0" cellpadding="2">
+			<tr>
+				{S_LATA}
+			</tr>
+		</table>
+	</div>
+	<!-- WEB SLICE -->
+	<div class="hslice" id="bukowno-eu" style="display:none;">
+		<p class="entry-title">bukowno.eu - Aktualności</p>
+		<div class="entry-content">bukowno.eu - Aktualności</div>
+		<a rel="feedurl" href="rss.php?webslice">bukowno.eu - Aktualności</a>
+	</div>
+	<div style="display:none;">{SLOWA_KLUCZOWE}</div>	
+</body>
+</html>

@@ -1,0 +1,5 @@
+<map name="imagemap" style="text-decoration:none; border:0;" id="imap">
+	<area coords="0,0,341,768" href="{HREF_DO_ZDJECIA_PREV}" alt="Previous photo" title="Poprzednie zdjęcie" />
+	<area coords="682,0,1024,768" href="{HREF_DO_ZDJECIA_NEXT}" alt="Next photo" title="Następne zdjęcie" />
+	<area coords="341,0,682,768" href="index.php?d={S_DIR}" title="Strona indeksu zdjęć" alt="Photo index" />
+</map>

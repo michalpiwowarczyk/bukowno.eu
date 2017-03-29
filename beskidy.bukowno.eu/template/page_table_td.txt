@@ -1,0 +1,14 @@
+				<td style="vertical-align:top; text-align:center;" {S_TD_SPAN}>
+					<div style="width:140px; padding:10px; overflow:hidden; text-align:center;">
+						<table width="140" align="center" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td style="width:140px; height:140px; background:url(images/dia.gif); background-repeat:no-repeat; margin-left:auto; margin-right:auto; text-align:center;">
+									<a href="index.php?d={S_DIR}">
+										<img {S_FOLDER_IMAGE} title="{S_TD_FOLDER_TITLE}" alt="{S_TD_FOLDER_TITLE}" />
+									</a>
+								</td>
+							</tr>
+						</table>
+						{S_FOLDER_TAIL}				
+					</div>
+				</td>

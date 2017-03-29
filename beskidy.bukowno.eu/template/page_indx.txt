@@ -1,0 +1,5 @@
+<td>
+    <a href="index.php?d={S_UP_DIR}">
+		<img style="border:0;vertical-align:middle;" src="images/idx.gif" width="31" title="Strona indeksu zdjęć" alt="Photo index" />
+	</a>
+</td>

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<title>Mapa - GPS track</title>
+		<meta name="Keywords" content="{META_SLOWA_KLUCZOWE}" />
+		<meta name="Author" content="Michał Piwowarczyk, michal.piwowarczyk@bukowno.eu" />
+		<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="../images/favicon.ico" type="image/x-icon">			
+		<style type="text/css">
+			html { height:100%; width: 100%; overflow: hidden; }
+			body { height: 100%; margin: 0; }
+			div .mapa 
+			{
+					font-family: Verdana, Arial, sans-serif;
+					font-size: 12px;
+					margin: 3px;
+					padding: 3px;
+			}
+		</style>
+		{JS}
+		<script type="text/javascript"> 
+        var googleMapsApiKeys = []; 
+        googleMapsApiKeys['http://beskidy.bukowno.eu/']='ABQIAAAAeuUSZSHY2AogGVuf54qVYxQfFQcM7cbRUvQ_53hH6XQjpct9DhS4sNMTEokb7EXbx2OBDU76GbeGzg'; 
+        googleMapsApiKeys['http://pyton.sl.mofnet.gov.pl/']='ABQIAAAAeuUSZSHY2AogGVuf54qVYxRIDws3daudFJHqkbqg0pbVju7GFhSVCRKxIzl7GJ9AgV8bQAd76qKDZQ'; 
+		googleMapsApiKeys['http://beskidy.nazwa.pl/']='ABQIAAAA8iNp8u3KB-SGJnnkfI3oVxQFDX72BMkTYoCUAfWz1vVnpb531xT_Ng7ShzvFi_mj4w3ruErLKLOywQ'; 
+		googleMapsApiKeys['http://duma.bukowno.eu/']='ABQIAAAAeuUSZSHY2AogGVuf54qVYxQfFQcM7cbRUvQ_53hH6XQjpct9DhS4sNMTEokb7EXbx2OBDU76GbeGzg'; 
+		googleMapsApiKeys['http://malamut.bukowno.eu/']='ABQIAAAAeuUSZSHY2AogGVuf54qVYxQfFQcM7cbRUvQ_53hH6XQjpct9DhS4sNMTEokb7EXbx2OBDU76GbeGzg'; 
+		var klucz = googleMapsApiKeys[location.protocol+"//"+location.host+"/"];
+		document.write(	'<script src=\"http://maps.google.com/maps?file=api&amp;v=2.x&amp;sensor=false&amp;hl=pl&amp;key='+klucz+'\" type=\"text/javascript\"><\/script>' ); 
+		</script>
+		<script type="text/javascript">
+		function createMarker(point, opcje, opis) 
+		{
+			var marker = new GMarker(point, opcje);
+			GEvent.addListener(marker, 'click', function() { marker.openInfoWindowHtml(opis); });
+			return marker;
+		}
+
+		function initializePOI()
+		{
+			if (GBrowserIsCompatible()) 
+			{ 
+				var map = new GMap2(document.getElementById("mapka"), {mapTypes: [G_NORMAL_MAP,G_SATELLITE_MAP,G_PHYSICAL_MAP,G_HYBRID_MAP,G_SATELLITE_3D_MAP]});
+				map.addControl(new GLargeMapControl());
+				map.addControl(new GMapTypeControl());
+				map.setCenter(new GLatLng(49.488, 20.01), {POWIEKSZENIE});
+				
+				var myIcon_blue = new GIcon(G_DEFAULT_ICON); 
+				myIcon_blue.image = "{DIR}../images/peak_blue.png"; 				
+				myIcon_blue.iconSize = new GSize(16, 16); 
+
+				var myIcon_red = new GIcon(G_DEFAULT_ICON); 
+				myIcon_red.image = "{DIR}../images/peak_red.png"; 				
+				myIcon_red.iconSize = new GSize(16, 16); 
+
+				var myIcon_green = new GIcon(G_DEFAULT_ICON); 
+				myIcon_green.image = "{DIR}../images/peak_green.png"; 				
+				myIcon_green.iconSize = new GSize(16, 16); 
+
+				var myIcon_yellow = new GIcon(G_DEFAULT_ICON); 
+				myIcon_yellow.image = "{DIR}../images/peak_yellow.png"; 				
+				myIcon_yellow.iconSize = new GSize(16, 16); 
+
+				var myIcon_gray = new GIcon(G_DEFAULT_ICON); 
+				myIcon_gray.image = "{DIR}../images/peak_gray.png"; 				
+				myIcon_gray.iconSize = new GSize(16, 16); 
+				
+				var myIcon_ = new GIcon(G_DEFAULT_ICON); 
+				
+				{MAPA_POI}
+			}
+			else 
+				alert("Sorry, the Google Maps API is not compatible with this browser");
+		}
+		</script>
+	</head>
+	<body onunload="GUnload()" onLoad="initializePOI()">
+		<div id="mapka" style="width: 100% !important; height: 100% !important;"></div>
+		<div style="display:none;">{SLOWA_KLUCZOWE}</div>
+	</body>
+</html>

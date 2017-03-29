@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>bukowno.eu - Google search</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+</head>
+<body id="body" style="background-color:transparent;background:none transparent;">
+	<div style="width:100%;text-align:center;">
+		{S_GOOGLE_SEARCH}
+	</div>
+</body>
+</html>

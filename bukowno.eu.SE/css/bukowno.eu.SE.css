@@ -1,0 +1,244 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 0px;
+}		
+.main_container {	
+	z-index: 1;
+}
+.image_container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: .6;
+	background-repeat: none;
+}
+
+.aktualnosc_item {
+	text-align: center;
+}
+.baner_dolny_item {
+	padding: 5px;
+}
+
+.swiper_img_sizes {
+	bleble: ble;
+}
+.swiper-container {
+	width: 720px;
+	height: 475px;
+	float: none;
+}        	
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}	
+.swiper_image {
+	z-index: 1;	
+}	
+.swiper_caption {
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);		
+}
+.swiper_caption::before {
+	display: table;
+	content: " ";
+	box-sizing: border-box;
+}
+.swiper_caption::after {
+	clear: both;
+	box-sizing: border-box;
+}
+.swiper-pagination-bullet {
+	background: white;
+	opacity: .7;
+}
+.swiper-pagination-bullet-active {
+	opacity: 1;
+	background: #007aff
+}
+.swiper-container-inside {
+	margin-left: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}	
+
+.pozycja_galerii {
+	_border-radius: 4px;
+	_border: 1px solid #ddd;
+	_width: 132px;
+	float: left;
+	padding: 1px;
+}
+.pozycja_galerii_image {
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	_padding: 5px;		
+	background: #F5F5F5
+}
+.opis_galerii {
+	padding: 6px;
+}
+.gallery-item-frame {
+	padding: 4px;
+}
+
+.aktualnosci {
+	margin-top: 56px;
+}
+
+.text_color {
+	color: black;
+}	
+.background_color {
+	background-color: #fff;
+}
+
+.okruszki {
+	padding: 10px 15px;
+	margin-top: 46px;
+}	
+
+.folder-text {
+	font-size: 0.9em;
+	color: black;
+}
+
+.galeria-img {
+	margin: 4px;
+}
+
+.foldery-img {
+	margin-top: 8px;
+	margin-bottom: 4px;
+}
+
+/* 2017.03.11 */
+.small-padding {
+	/*
+	padding-left: 4px;
+	padding-right: 4px;
+	*/
+}
+.foldery-margin {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+.foldery-a-margin {
+	margin-bottom: 0px;
+	border: 2px solid #ddd;
+	border-color: white;
+	-webkit-transition: border .5s ease-in-out;
+	-o-transition: border .5s ease-in-out;
+	transition: border .5s ease-in-out;		
+}
+.foldery-p-margin {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin-top: 2px;
+	-webkit-transition: border .5s ease-in-out;
+	-o-transition: border .5s ease-in-out;
+	transition: border .5s ease-in-out;
+}
+a.foldery-a-margin:hover, p.foldery-p-margin:hover {
+	_border-color: black;
+	border-color: currentColor;
+}
+.galeria-img-width {
+	width: 180px;
+	height: 120px;
+}
+.nav-zestawienie {
+}
+.kalendarz-color {
+	background-color: #f8f8f8;
+}
+.kalendarz-row {
+	margin-left: 0;
+	width: 260px;
+	margin-right: 0;
+}
+.kalendarz-margin {
+	margin-left: 15px;
+}
+.kalendarz-kolor-B4EAFF {
+	background-color: #B4EAFF;
+}
+.kalendarz-kolor-FF9933 {
+	background-color: #FF9933;
+}
+.kalendarz-kolor-778899 {
+	background-color: #778899;
+}
+.kalendarz-kolor-40E0D0 {
+	background-color: #40E0D0;
+}
+.kalendarz-kolor-DAA520 {
+	background-color: #DAA520;
+}
+.kalendarz-kolor-99FF99 {
+	background-color: #99FF99;
+}
+.kalendarz-kolor-lightgreen {
+	background-color: lightgreen;
+}
+.kalendarz-href {
+	color: white;
+}
+.kalendarz-wiersz {
+	margin-bottom: -5px;
+}
+
+/* 2017.03.17 */
+.random-img {
+	width: 100%;
+}
+
+/* 2017.03.23 */
+.modal-dialog {
+	width: 100%;
+	margin-top: 60px;		
+}
+.modal-body {
+	align-content: center;
+}
+.modal1024 {
+	max-width: 1024px;
+}
+@media (max-width: 767px) {
+	.modal1024 {
+		max-width: 724px;
+	}
+}
+@media (max-width: 480px) {
+	.modal1024 {
+		max-width: 424px;
+	}
+}	
+
+/* 2017.03.28 */
+@media (max-width: 767px) {
+	.menu-container .in {
+		height: 376px;		
+	}
+	.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse .in {
+		max-height: none;
+	}
+}

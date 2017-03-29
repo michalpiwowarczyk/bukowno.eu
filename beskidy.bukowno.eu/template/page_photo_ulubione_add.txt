@@ -1,0 +1,1 @@
+ | <a href="utils/ulubione.php?d={S_DIR}&f={S_PHOTO}">dodaj do ulubionych</a>

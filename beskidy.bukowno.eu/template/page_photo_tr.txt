@@ -1,0 +1,7 @@
+			<tr>
+				<td style="text-align:center; padding:4px; height:58px; border:0px;" class="thumb">
+					<a href="{HREF_DO_ZDJECIA}">
+						<img src="{THUMB_DO_ZDJECIA}" title="{NAME_ZDJECIA}" alt="{NAME_ZDJECIA}" width="{S_THUMB_WIDTH_2}" height="{S_THUMB_HEIGHT_2}" class="mthumb" />
+					</a>
+				</td>
+			</tr>

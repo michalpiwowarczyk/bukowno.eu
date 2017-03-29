@@ -1,0 +1,8 @@
+			<tr>
+				{S_PAGE_TD_1}
+				{S_PAGE_TD_2}
+				{S_PAGE_TD_3}
+				{S_PAGE_TD_4}
+				{S_PAGE_TD_5}
+				{S_PAGE_TD_6}
+			</tr>

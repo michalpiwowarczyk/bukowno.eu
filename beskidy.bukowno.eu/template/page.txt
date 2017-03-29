@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl">
+<head>
+	<title>{S_TITLE}</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="Abstract" content="{S_TITLE}" />
+	<meta name="Keywords" content="{S_SLOWA_KLUCZOWE}" />
+	<meta name="Author" content="Michał Piwowarczyk, michal.piwowarczyk@bukowno.eu" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<link rel="alternate" href="utils/rss.php" type="application/rss+xml"/>
+	<script language="javascript" src="js/beskidy.js"></script>
+	<meta name="Description" content="Góry {S_TITLE}" />
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">	
+</head>
+
+<body id="body">
+	<div style="width:99%; margin-left:auto; margin-right:auto; margin-bottom: 10px; text-align:center;">
+		<table style="height:54px;" align="center" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td>
+					<table style="width:960px;" cellspacing="0" cellpadding="0" border="0">
+						<tr>
+							{S_PAGE_UP}{S_PAGE_INDX}
+							<td style="width:20px;">
+								<img style="border:0;" src="images/hdr_left.gif" alt="" />
+							</td>
+							<td style="text-align:left; background:transparent url(images/hdr_mid.gif) repeat-x; white-space:nowrap;" class="title">
+								{S_OPIS_GORNY}
+							</td>
+							<td style="width:20px;">
+								<img style="border:0;" src="images/hdr_right.gif" alt="" />
+							</td>
+							{S_PAGE_NEXT_PREV}
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+		<table style="width:960px;" align="center" class="infotable" cellspacing="0" cellpadding="2" border="0">
+			<tr>
+				<td align="center" class="comment" style="border: none;">
+					<i>{S_PRZYPIS}</i><br /><br />
+					<span style="color:white;">It's my life, whole my world, my love and my hell.</span>
+				</td>
+			</tr>
+		</table>
+
+		{S_TITLE_TABLE}
+
+		{S_MAPA}
+		<table align="center" cellspacing="6" cellpadding="0" border="0">
+			{S_PAGE_TR_S}
+		</table>
+ 
+		<br />
+
+		<table style="width:960px;" align="center" class="infotable" cellspacing="0" cellpadding="2">
+			{S_PAGE_PHOTO_BOTTOM}
+			<tr>
+				<td style="text-align:center;" class="xsmalltxt">{S_LICZBA_ZDJEC}
+					<a href="utils/kalendarz.php" title="Kalendarz">Kalendarz</a> | 
+					<a href="utils/zestawienie.php" title="Zestawienie zbiorcze">Zestawienie zbiorcze</a> | 
+					<a href="utils/mapa.php" title="Google Maps zestawienie">Zestawienie w Google Maps</a> | 
+					<a href="raporty/inne/gory.kmz" title="Google Earth KMZ KML ślad GPS">Ślad GPS w Google Earth</a>
+				</td>
+			</tr>			
+			<tr>
+				<td align="center" class="smalltxt">Ostatnia aktualizacja: <strong>{OSTATNIA_AKTUALIZACJA}</strong> 
+					| e-mail: <a href="javascript:alert('mailto: {PRAWA_AUTORSKIE_EMAIL}')" target="_top">{PRAWA_AUTORSKIE}</a> 
+					| <a href="utils/rss.php" title="RSS"><img src="images/rss.gif" style="vertical-align:middle;" border="0" title="RSS"></a>
+					| <span style="text-align: right">Inspired by <a href="http://jalbum.net" title="jAlbum">jAlbum</a></span>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" class="xsmalltxt">
+					Wszystkie zdjęcia znajdujące się na tej stronie są własnością autora witryny i nie możesz ich wykorzystywać bez jego zgody
+				</td>
+			</tr>
+		</table>
+	</div>	
+</body>
+</html>

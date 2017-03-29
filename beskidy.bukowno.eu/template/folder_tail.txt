@@ -1,0 +1,8 @@
+					<div style="width:120px; padding:10px; overflow:hidden; text-align:center;" class="smalltxt">
+						{S_IS_NEW}
+						<span class="dirname">
+							<a href="index.php?d={S_DIR}">{S_TD_FOLDER_TITLE}</a>
+						</span>
+						<br />
+						({S_FOLDER_ZDJECIA}{S_FOLDER_WYCIECZKI})
+					</div>

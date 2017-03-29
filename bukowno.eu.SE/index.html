@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="no-js" lang="pl" ng-app="bukownoApp" ng-controller="bukownoCtrl" ng-cloak>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">	
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>bukowno.eu / {{pageTitle}}</title>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link href="css/bootstrap.css" rel="stylesheet"/>
+	<link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
+	<link href="css/carousel.css" rel="stylesheet"/>
+	<link href="css/navbar.css" rel="stylesheet"/>	
+	<link href="css/swiper.min.css" rel="stylesheet"/>
+	<link href="css/magnific-popup.css" rel="stylesheet"/>
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<link href="css/bukowno.eu.SE.css" rel="stylesheet"/>	
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-sanitize.min.js"></script>
+	<script src="js/prefixfree.min.js"></script>
+	<script src="js/bukowno.eu.SE.Angular.Model.js"></script>
+	<script src="js/bukowno.eu.SE.Angular.Controller.js"></script>
+	<script src="js/bukowno.eu.SE.Angular.Directive.js"></script>
+</head>
+
+<body>
+<div class="image_container" id="id_image_container"></div>
+<div class="main_container container_fluid" id="id_main_container">
+	<div class="container" id="id_container">	
+
+		<!-- Menu górne -->
+		<header class="row">
+			<div class="col-xs-12 navbar navbar-default navbar-fixed-top menu-container">
+				<div class="container menu-container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#id_menu_up" aria-expanded="false">
+							<span class="sr-only">Pokaż menu nawigacji</span>
+							<span class="icon-bar"/>
+							<span class="icon-bar"/>
+							<span class="icon-bar"/>
+						</button>
+						<a class="navbar-brand" href="http://bukowno.eu">bukowno.eu</a>
+					</div>			
+
+					<nav class="collapse navbar-collapse menu-container" id="id_menu_up">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#c" ng-click="showContent('wstepniak')">Start</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Góry <span class="caret"/></a>
+								<ul class="dropdown-menu">
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria')">Galeria</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#c" ng-click="showContent('kalendarz')">Kalendarz</a></li>
+									<li><a href="#c" ng-click="showContent('zestawienie')">Zestawienie</a></li>
+									<li><a href="http://beskidy.bukowno.eu/mpw/beskidy.bukowno.eu/utils/mapa.php?m=SE">Mapa</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/51_3_ZewnetrzneKarpatyZachodnie')">Beskidy</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromModelData('tatry')">Tatry</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#c" ng-click="updateGaleryFromModelData('alpy')">Alpy</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromModelData('pirenejeapeniny')">Pireneje, Apeniny</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/341_3_WyzynaKrakowskoCzestochowska/341_32_WyzynaOlkuska')">Jura</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromModelData('sudety')">Sudety</a></li>
+								</ul>
+							</li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wyjazdy <span class="caret"/></a>				
+								<ul class="dropdown-menu">
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Wlochy&r=../bukowno.eu.SE')">Włochy</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Hiszpania&r=../bukowno.eu.SE')">Hiszpania</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Alzacja&r=../bukowno.eu.SE')">Alzacja</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Ardeny&r=../bukowno.eu.SE')">Ardeny</a></li>
+								</ul>
+							</li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Malamut <span class="caret"/></a>
+								<ul class="dropdown-menu">
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/Malamut&r=../bukowno.eu.SE')">Tak rosłam i mieszkałam</a></li>
+									<li><a href="http://beskidy.bukowno.eu/mpw/beskidy.bukowno.eu/utils/mapa.php?m=SE&dogtrekking=t">Tutaj specerowałam</a></li>
+								</ul>
+							</li>
+							<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/Alpy&r=../bukowno.eu.SE')">Alpy</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tatry <span class="caret"/></a>
+								<ul class="dropdown-menu">
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_5_TatryWysokie')">Tatry Wysokie</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_5_TatryZachodnie')">Tatry Zachodnie</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_9_NizkeTatry')">Niżne Tatry</a></li>
+								</ul>
+							</li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Po godzinach <span class="caret"/></a>
+								<ul class="dropdown-menu">
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Dracula&r=../bukowno.eu.SE')">Dracula</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Modele&r=../bukowno.eu.SE')">Modele</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Ogrod&r=../bukowno.eu.SE')">Ogródek</a></li>
+									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/WWII&r=../bukowno.eu.SE')">WW II</a></li>
+								</ul>
+							</li>			
+							<li><a href="#c" ng-click="showContent('random')">Pokaz slajdów</a></li>
+							<li><a href="#c" ng-click="showContent('kontakt')">Kontakt</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>	
+		</header>
+
+		<!-- Górny pokaz slajdów - Swiper -->
+		<div class="row">
+			<div class="col-xs-12 center-block">
+				<div class="swiper-container center-block" id="id_pokaz_slajdow">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide background_color" ng-repeat="slide in slider" data-hash="slider_slide_nr{{$index + 1}}">
+							<div class="container swiper-container-inside">
+								<div class="swiper_image">
+									<img class="swiper_img_sizes" ng-src="{{slide.img}}"/>
+								</div>
+								<div class="swiper_caption">
+									<h2>{{slide.h}}</h2>
+									<p>{{slide.text}}</p>
+									<p><a class="btn btn-lg btn-primary" href="#c" ng-click="updateGaleryFromSlider($index)" role="button">{{slide.button}}</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<a name="c" id="id_a_content"/>
+			<!-- Content -->
+			<div class="col-md-9 col-md-push-3 col-sm-9 col-sm-push-3 col-xs-12 alert alert-danger" ng-show="ajax.error">
+				Błąd ({{ajax.status}}: {{ajax.error}}). Dane nie zostały wczytane.
+			</div>
+			<section class="col-md-9 col-md-push-3 col-sm-9 col-sm-push-3 col-xs-12" ng-hide="ajax.error">
+				<article>
+					<!-- Okruszki -->
+					<div class="row okruszki">
+						<div class="col-xs-3">
+							<ol class="breadcrumb">
+								<li>Jesteś tutaj:</li>
+							</ol>
+						</div>
+						<div class="cols-xs-9">
+							<ol class="breadcrumb">
+								<li><a href="#c" ng-click="showContent('wstepniak')">Home</a></li>
+								<li ng-repeat="okruszek in galeria.okruszki" ng-show="currentEkran=='galeria'">
+									<a href="#c" ng-click="updateGaleryFromOkruszki($index)" ng-class="{ 'text_color' : $last }">{{okruszek.text}}</a>
+								</li>
+								<li ng-show="currentEkran=='zestawienie'">
+									<a href="#c" ng-click="showContent(currentEkran)" ng-class="{ 'text_color' : $last }">Zestawienie</a>
+								</li>
+								<li ng-show="currentEkran=='kalendarz'">
+									<a href="#c" ng-click="showContent(currentEkran)" ng-class="{ 'text_color' : $last }">Kalendarz</a>
+								</li>
+							</ol>
+						</div>
+					</div>
+					
+					<!-- Tytuł strony itp. -->			
+					<h2 class="text_color" ng-show="currentEkran=='zestawienie' || currentEkran=='kalendarz'">{{pageTitle}} {{getCurrentYear()}} r.</h2>
+					<h2 class="text_color" ng-show="currentEkran!='zestawienie' && currentEkran!='kalendarz'">{{pageTitle}}</h2>
+					
+					<!-- Treść strony dla ekranu z galerią zdjęć i folderów -->
+					<p class="text_color opis_galerii" id="id_content_text" ng-bind-html="galeria.opis" ng-show="currentEkran=='galeria'"/>
+					<!-- Treść strony dla ekranu wstępniaka i kontaktu -->
+					<p class="text_color opis_galerii" id="id_content_tresc" ng-bind-html="modelTresc.text" ng-show="currentEkran=='kontakt' || currentEkran=='wstepniak'"/>
+				</article>
+				
+				<!-- Galeria zdjec -->
+				<div class="row" id="id_galeria">
+					<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 small-padding grid-item" ng-repeat="zdjecie in galeria.zdjecia" ng-if="galeria.zdjecia.length>0 && currentEkran=='galeria'">
+						<a class="text-center thumbnail" ng-href="{{prepareZdjecieHref(galeria.url,galeria.galeriaDir,zdjecie.href)}}" data-index="{{$index}}">
+							<img class="galeria-img-width" ng-src="{{galeria.url}}/{{zdjecie.img}}"/>					
+						</a>
+						<galeria-element galeria-item="{{$index+1}}" galeria-count="{{galeria.zdjecia.length}}"/>
+					</div>
+				</div>
+				
+				<!-- Galeria folderow -->
+				<div class="row" id="id_foldery">
+					<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 foldery-margin" ng-repeat="folder in galeria.foldery" ng-if="galeria.foldery.length>0 && currentEkran=='galeria'">
+						<a class="text-center thumbnail foldery-a-margin" href="#c" ng-click="updateGalery($index)">
+							<img ng-src="{{galeria.url}}/{{folder.img}}" ng-class="{ 'galeria-img-width' : withThumb($index) }"/>
+						</a>
+						<p class="text-center folder-text foldery-p-margin" ng-click="updateGalery($index)" ng-bind-html="prepareFolderDescription($index)"/>
+						<galeria-element galeria-item="{{$index+1}}" galeria-count="{{galeria.foldery.length}}"/>
+					</div>
+				</div>		
+				
+				<!-- Zestawienie -->
+				<article class="row" id="id_zestawienie" ng-show="currentEkran=='zestawienie'">
+					<div class="col-xs-12">
+						<ul class="nav nav-tabs">
+							<li ng-class="{ 'active' : zestawienie[$index].rok==getCurrentYear() }" ng-repeat="rok in lata">
+								<a class="text_color nav-zestawienie" ng-href="#id_zestawienieRok{{rok}}" data-toggle="tab" data-rok="{{rok}}" ng-click="setCurrentYear(rok)">{{rok}}</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-12 tab-content">			
+						<div class="tab-pane fade" ng-class="{ 'active in' : rok.rok==getCurrentYear() }" id="id_zestawienieRok{{rok.rok}}" ng-repeat="rok in zestawienie">
+							<h3 class="text_color">{{rok.rok}}</h3>
+							<p class="text_color">GOT {{rok.got}}<br/>Dystans {{rok.dystans}}km<br/>Podejście {{rok.podejscie}}km<br/>Łączny czas {{rok.czas}}</p>
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="list-group">
+										<a href="#c" class="list-group-item" ng-repeat="wycieczka in rok.wycieczki" ng-click="updateGaleryFromZestawienie($index)">
+											<h4 class="list-group-item-heading">{{wycieczka.opis}}<small> {{wycieczka.data}}</small></h4>
+											<p class="list-group-item-text">
+												<span ng-show="wycieczka.km">dystans {{wycieczka.km}}, </span>
+												<span ng-show="wycieczka.up">podejście {{wycieczka.up}}, </span>
+												<span ng-show="wycieczka.czas">czas przejścia {{wycieczka.czas}}</span>
+												<span ng-show="wycieczka.skitura">, skitura</span>
+												<span class="text-success" ng-show="wycieczka.dogtrekking">, dogtrekking</span>
+												<span class="text-danger" ng-show="wycieczka.ferrata">, ferrata</span>
+											</p>									
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>		
+				
+				<!-- Kalendarz -->
+				<article class="row" id="id_kalendarz" ng-show="currentEkran=='kalendarz'">
+					<div class="col-xs-12">
+						<ul class="nav nav-tabs">
+							<li ng-class="{ 'active' : zestawienie[$index].rok==getCurrentYear() }" ng-repeat="rok in lata">
+								<a class="text_color nav-zestawienie" ng-href="#id_kalendarzRok{{rok}}" data-toggle="tab" data-rok="{{rok}}" ng-click="setCurrentYear(rok)">{{rok}}</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-12 tab-content" id="id_kalendarzContent">	
+						<div class="tab-pane fade" ng-class="{ 'active in' : rok.rok==getCurrentYear() }" id="id_kalendarzRok{{rok.rok}}" ng-repeat="rok in zestawienie track by rok.rok">
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 center-block" ng-repeat="miesiac in [1,2,3,4,5,6,7,8,9,10,11,12] track by miesiac">
+									<div class="kalendarz-color foldery-margin center-block">
+										<div class="row kalendarz-row">
+											<div class="col-xs-7 text_color text-center kalendarz-row">
+												{{getMiesiac(miesiac)}} {{rok.rok}}
+											</div>
+										</div>
+										<div class="row kalendarz-row kalendarz-margin">
+											<p class="col-xs-1 text_color text-center center-block" ng-repeat="dzien in [1,2,3,4,5,6,7] track by dzien">
+												{{getDzien(dzien)}}
+											</p>
+										</div>
+										<div class="row kalendarz-row">
+											<show-calendar calendar-rok="{{rok.rok}}" calendar-miesiac="{{miesiac}}"></show-calendar>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>			
+					</div>
+				</article>	
+				
+				<!-- Pokaz losowych zdjęć -->
+				<article class="row" id="id_random" ng-show="currentEkran=='random'">
+					<div class="col-xs-12" id="id_randomInside">
+						<h5 class="text_color">{{randomImageText}}</h5>
+						<img class="random-img" ng-src="{{randomImageUrl}}" id="id_randomImage_1"/>
+					</div>
+					<!-- popup window -->
+					<div id="id_randomWithModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog center-block">
+							<div id="id_randomContent" class="modal-content modal1024 center-block">
+								<div class="modal-header">
+									<h5 class="modal-title">{{randomImageText}}
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</h5>
+								</div>
+								<div class="modal-body center-block">
+									<img id="id_randomImage_2" ng-src="{{randomImageUrl}}" class="img-responsive center-block"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>	
+
+			</section>
+			
+			<!-- Aktualności -->
+			<aside class="col-md-3 col-md-pull-9 col-sm-3 col-sm-pull-9 col-xs-12">		
+				<div class="row">
+					<h3 class="col-xs-12 text-center text_color">Ostatnio się działo</h3>
+					<div class="list-group aktualnosci" id="id_aktualnosci">
+						<div class="col-xs-12 list-group-item thumbnail grid-item" ng-repeat="aktualnosc in aktualnosci" ng-if="aktualnosci.length>0">
+							<img ng-src="{{domainUrl}}/{{aktualnosc.img}}"/>
+							<div class="caption text-center">
+								<p><b>{{aktualnosc.data}}</b> {{aktualnosc.text}}</p>
+								<p><a class="btn btn-primary" href="#c" ng-click="updateGaleryFromAktualnosci($index)">{{aktualnosc.button}}<br/>zobacz więcej</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+		</div>
+
+		<!-- Baner dolny -->
+		<section class="row">
+			<div class="list-group" id="id_banery">
+				<div class="col-md-3 col-sm-6 col-xs-12 grid-item baner_dolny_item" ng-repeat="kafelek in kafelkiDolne">
+					<a class="list-group-item {{kafelek.class}}" href="#c" ng-click="updateGaleryFromKafelkiDolne($index)">
+						<h4 class="list-group-item-heading">{{kafelek.h}}</h4>
+						<p class="list-group-item-text" id="id_banery_item{{$index + 1}}">{{kafelek.text}}</p>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Kafelki dolne -->
+		<footer class="row background_color" id="id_menu_down">
+			<p class="col-xs-8 background_color grid-item text_color">Ostatnia aktualizacja: <b>{{ostatniaaktualizacja.data}}</b><br/>e-mail: <a href="javascript:alert('mailto: michal.piwowarczyk.eu@gmail.com')" target="_top">Michał Piwowarczyk</a></p>
+			<p class="col-xs-2 background_color grid-item text_color">No <img src="images/cookies.png" width="40"/></p>
+			<p class="col-xs-2 background_color grid-item text_color">No <img src="images/face.png" width="40"/></p>
+		</footer>
+
+	</div>
+</div>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/jquery.rm.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/packery.pkgd.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/swiper.jquery.min.js"></script>
+<script src="js/equalize.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.elementresize.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/bukowno.eu.SE.jQuery.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<td>
+    <a href="index.php?d={S_UP_DIR}">
+		<img style="border:0;vertical-align:middle;" src="images/up.gif" width="31" title="Do góry jeden poziom" alt="Up" />
+	</a>
+</td>

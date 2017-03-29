@@ -1,0 +1,7 @@
+		<table style="width:960px;" align="center" class="infotable" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td align="center" class="{S_TITLE_DESCRIPT_STYLE}">{S_TITLE_DESCRIPT}</td>
+			</tr>
+		</table>
+		
+		<br />

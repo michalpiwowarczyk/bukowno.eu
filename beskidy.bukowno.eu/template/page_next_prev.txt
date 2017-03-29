@@ -1,0 +1,10 @@
+<td>
+    <a href="index.php?d={S_UP_DIR}&f={S_PHOTO}&k=p">
+		<img style="border:0;vertical-align:middle;" src="images/prev.gif" width="31" title="Poprzednie zdjęcie" alt="Previous photo" />
+	</a>
+</td>
+<td>
+    <a href="index.php?d={S_UP_DIR}&f={S_PHOTO}&k=n">
+		<img style="border:0;vertical-align:middle;" src="images/next.gif" width="31" title="Następne zdjęcie" alt="Next photo" />
+	</a>
+</td>
