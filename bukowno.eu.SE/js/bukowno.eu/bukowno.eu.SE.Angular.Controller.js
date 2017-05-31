@@ -94,7 +94,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$http,$location,$interval,
 
 	$scope.getJson = function(url,model) {
 		if(model=='galeria') {
-			$scope.galeria = $scope.emptyGaleria;					
+			$scope.galeria = $scope.emptyGaleria;
 		}
 		$http({
 			method : "GET",

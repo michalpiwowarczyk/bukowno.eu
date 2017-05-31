@@ -273,7 +273,7 @@ function getThumbnailImageFromTar($folder,$image,$mode) {
 	
 	$tar_file = $folder.'/galeria.tar';
 	$id = fileinode($tar_file);
-	$thumb_name = $thumb_dir.$id.$image;
+	$thumb_name = $thumb_dir.$id."-".$image;
 	$ok=true;
 	if (!file_exists($thumb_name))
 		$ok=false;
@@ -334,9 +334,9 @@ function getFolderImage($folder,$image,$mode,$tar,$tmpfile) {
 	}		
 	if($ok) {
 		if($tar)
-			$id = fileinode($folder.'/galeria.tar').$image;
+			$id = fileinode($folder.'/galeria.tar')."-".$image;
 		else
-			$id = fileinode($f);		
+			$id = fileinode($f)."-";
 		$thumb_name = $thumb_dir.$id.".jpg";
 	    if (!file_exists($thumb_name))
 			make_thumbnail($f,$thumb_name);
@@ -635,6 +635,9 @@ function extract_from_tar($tar_dir,$file_name,$is_json) {
 		if (filemtime($tmpfname)<filemtime($tar_file)) {
 			$ok=false;
 		}
+		if (filesize($tmpfname)==0) {
+			$ok=false;
+		}
 	}
 	if (!$ok) {
 		$tar_object = new Archive_Tar($tar_file);
@@ -683,7 +686,7 @@ function getAktualnosci($wycieczki) {
 		$folder = str_replace("../index.php?d=","",$wycieczka['link']);
 		$data = $klucz;
 		$props = getFolderProperties("../".$folder);
-		$thumb_name = $thumb_dir.fileinode("../".$folder.'/galeria.tar').$props['folderIcon'];
+		$thumb_name = $thumb_dir.fileinode("../".$folder.'/galeria.tar')."-".$props['folderIcon'];
 		$aktualnoscJson = array('img' => $thumb_name, 'text' => $props['title'], 'href' => $folder, 'button' => $wycieczka['opis'], 'data' => $data);
 		$aktualnosciJson[] = $aktualnoscJson;
 		++$i;
@@ -727,6 +730,19 @@ function getInodeTarArray($folder,$r) {
 	return $files;
 }
 
+function getInodeFromThumbFileName($thumb_name) {
+	$ret = "";
+	for($i=0;$i<strlen($thumb_name);++$i) {
+		if(is_numeric($thumb_name[$i])) {
+			$ret .= $thumb_name[$i];
+		}		
+		else {
+			break;
+		}
+	}
+	return $ret;
+}
+
 function getRandomizeImage() {
 	global $database_dir, $thumb_dir;
 	
@@ -744,7 +760,7 @@ function getRandomizeImage() {
 		return;
 	}
 	$pos = mt_rand(0,$ile-1);
-	$inode = substr($fileNames[$pos],0,9);	
+	$inode = getInodeFromThumbFileName($fileNames[$pos]);	
 	$ret = array_merge(getInodeTarArray("../galeria","../"), getInodeTarArray("../../bukowno.eu.SE/galeria",""));
 	$dir = "";
 	$r = "";
@@ -759,7 +775,7 @@ function getRandomizeImage() {
 	}
 	$ret = array('img'=>"",'dir'=>"",'r'=>"");
 	if($ok) {
-		$ret = array('img'=>str_replace("Json.",".",substr($fileNames[$pos],9)),'dir'=>str_replace("../galeria/","galeria/",$dir),'r'=>$r);
+		$ret = array('img'=>str_replace("Json.",".",substr($fileNames[$pos],strlen($inode)+1)),'dir'=>str_replace("../galeria/","galeria/",$dir),'r'=>$r);
 	}
 	return $ret;
 }
