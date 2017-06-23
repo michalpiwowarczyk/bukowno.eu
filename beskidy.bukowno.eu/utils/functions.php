@@ -265,6 +265,10 @@ function make_thumbnail($src, $dst) {
 
 
 function getThumbnailImageFromTar($folder,$image,$mode) {
+	return getThumbnailImageFromTarJson($folder,$image,$mode,false);
+}
+
+function getThumbnailImageFromTarJson($folder,$image,$mode,$is_json) {
 	global $thumb_dir, $thumb_width, $thumb_height;
 
 	$width = $thumb_width;
@@ -274,6 +278,9 @@ function getThumbnailImageFromTar($folder,$image,$mode) {
 	$tar_file = $folder.'/galeria.tar';
 	$id = fileinode($tar_file);
 	$thumb_name = $thumb_dir.$id."-".$image;
+	if($is_json) {
+		$thumb_name = "../".$thumb_name;
+	}
 	$ok=true;
 	if (!file_exists($thumb_name))
 		$ok=false;
@@ -282,7 +289,7 @@ function getThumbnailImageFromTar($folder,$image,$mode) {
 			$ok=false;
 	}
 	if(!$ok) {
-		$f = extract_from_tar($folder,$image,false);
+		$f = extract_from_tar($folder,$image,$is_json);
 		make_thumbnail($f,$thumb_name);
 	}
 	if (file_exists($thumb_name)) {
@@ -687,6 +694,7 @@ function getAktualnosci($wycieczki) {
 		$data = $klucz;
 		$props = getFolderProperties("../".$folder);
 		$thumb_name = $thumb_dir.fileinode("../".$folder.'/galeria.tar')."-".$props['folderIcon'];
+		getThumbnailImageFromTarJson("../".$folder,$props['folderIcon'],false,true);
 		$aktualnoscJson = array('img' => $thumb_name, 'text' => $props['title'], 'href' => $folder, 'button' => $wycieczka['opis'], 'data' => $data);
 		$aktualnosciJson[] = $aktualnoscJson;
 		++$i;
