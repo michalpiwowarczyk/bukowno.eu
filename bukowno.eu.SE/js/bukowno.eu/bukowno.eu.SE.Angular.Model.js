@@ -47,7 +47,7 @@ var modelGaleriaTatry = {
 		{ href: "galeria/51_4_CentralneKarpatyZachodnie", text: "51.4 Centralne Karpaty Zachodnie" }
 	]};
 
-	var modelGaleriaSudety = { 
+var modelGaleriaSudety = { 
 	url: "http://bukowno.eu/mpw/beskidy.bukowno.eu/index.php", directory: "galeria", title: "Sudety", opis: "Sudety Zachodnie, Sudety Środkowe, Sudety Wschodnie",
 	foldery: [
 		{ directory: "galeria/332_3_SudetyZachodnie", img: "../images/folder.gif", opis: "332.3 Sudety Zachodnie", liczba_zdjec: 0, liczba_wycieczek: 0 },

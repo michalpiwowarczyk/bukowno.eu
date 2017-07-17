@@ -18,6 +18,8 @@
 	<![endif]-->
 	<link href="css/bukowno.eu/bukowno.eu.SE.css" rel="stylesheet"/>	
 	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<script src="js/angular-ui-router.min.js"></script>
 	<script src="js/angular-sanitize.min.js"></script>
 	<script src="js/prefixfree.min.js"></script>
 	<script src="js/bukowno.eu/bukowno.eu.SE.Angular.Model.js"></script>
@@ -49,51 +51,51 @@
 							<li class="active"><a href="#c" ng-click="showContent('wstepniak')">Start</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Góry <span class="caret"/></a>
 								<ul class="dropdown-menu">
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria')">Galeria</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria')">Galeria</a></li>
 									<li role="separator" class="divider"></li>
 									<li><a href="#c" ng-click="showContent('kalendarz')">Kalendarz</a></li>
 									<li><a href="#c" ng-click="showContent('zestawienie')">Zestawienie</a></li>
 									<li><a href="http://beskidy.bukowno.eu/mpw/beskidy.bukowno.eu/utils/mapa.php?m=SE">Mapa</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/51_3_ZewnetrzneKarpatyZachodnie')">Beskidy</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/51_3_ZewnetrzneKarpatyZachodnie','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/51_3_ZewnetrzneKarpatyZachodnie')">Beskidy</a></li>
 									<li><a href="#c" ng-click="updateGaleryFromModelData('tatry')">Tatry</a></li>
 									<li role="separator" class="divider"></li>
 									<li><a href="#c" ng-click="updateGaleryFromModelData('alpy')">Alpy</a></li>
 									<li><a href="#c" ng-click="updateGaleryFromModelData('pirenejeapeniny')">Pireneje, Apeniny</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/341_3_WyzynaKrakowskoCzestochowska/341_32_WyzynaOlkuska')">Jura</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/341_3_WyzynaKrakowskoCzestochowska/341_32_WyzynaOlkuska','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/341_3_WyzynaKrakowskoCzestochowska/341_32_WyzynaOlkuska')">Jura</a></li>
 									<li><a href="#c" ng-click="updateGaleryFromModelData('sudety')">Sudety</a></li>
 								</ul>
 							</li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wyjazdy <span class="caret"/></a>				
 								<ul class="dropdown-menu">
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Wlochy&r=../bukowno.eu.SE')">Włochy</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Hiszpania&r=../bukowno.eu.SE')">Hiszpania</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/CiekaweMiejsca/Wlochy&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Wlochy&r=../bukowno.eu.SE')">Włochy</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/CiekaweMiejsca/Hiszpania&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Hiszpania&r=../bukowno.eu.SE')">Hiszpania</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Alzacja&r=../bukowno.eu.SE')">Alzacja</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Ardeny&r=../bukowno.eu.SE')">Ardeny</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/CiekaweMiejsca/Alzacja&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Alzacja&r=../bukowno.eu.SE')">Alzacja</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/CiekaweMiejsca/Ardeny&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/CiekaweMiejsca/Ardeny&r=../bukowno.eu.SE')">Ardeny</a></li>
 								</ul>
 							</li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Malamut <span class="caret"/></a>
 								<ul class="dropdown-menu">
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/Malamut&r=../bukowno.eu.SE')">Tak rosłam i mieszkałam</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/Malamut&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/Malamut&r=../bukowno.eu.SE')">Tak rosłam i mieszkałam</a></li>
 									<li><a href="http://beskidy.bukowno.eu/mpw/beskidy.bukowno.eu/utils/mapa.php?m=SE&dogtrekking=t">Tutaj specerowałam</a></li>
 								</ul>
 							</li>
-							<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/Alpy&r=../bukowno.eu.SE')">Alpy</a></li>
+							<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/Alpy&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/Alpy&r=../bukowno.eu.SE')">Alpy</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tatry <span class="caret"/></a>
 								<ul class="dropdown-menu">
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_5_TatryWysokie')">Tatry Wysokie</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_5_TatryZachodnie')">Tatry Zachodnie</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_9_NizkeTatry')">Niżne Tatry</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/51_4_CentralneKarpatyZachodnie/514_5_TatryWysokie','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_5_TatryWysokie')">Tatry Wysokie</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/51_4_CentralneKarpatyZachodnie/514_5_TatryZachodnie','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_5_TatryZachodnie')">Tatry Zachodnie</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/51_4_CentralneKarpatyZachodnie/514_9_NizkeTatry','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/51_4_CentralneKarpatyZachodnie/514_9_NizkeTatry')">Niżne Tatry</a></li>
 								</ul>
 							</li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Po godzinach <span class="caret"/></a>
 								<ul class="dropdown-menu">
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Dracula&r=../bukowno.eu.SE')">Dracula</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Modele&r=../bukowno.eu.SE')">Modele</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Ogrod&r=../bukowno.eu.SE')">Ogródek</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/WWII&r=../bukowno.eu.SE')">WW II</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/PoGodzinach/Dracula&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Dracula&r=../bukowno.eu.SE')">Dracula</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/PoGodzinach/Modele&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Modele&r=../bukowno.eu.SE')">Modele</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/PoGodzinach/Ogrod&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/Ogrod&r=../bukowno.eu.SE')">Ogródek</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/PoGodzinach/WWII&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/WWII&r=../bukowno.eu.SE')">WW II</a></li>
 								</ul>
 							</li>			
 							<li><a href="#c" ng-click="showContent('random')">Pokaz slajdów</a></li>
@@ -149,7 +151,7 @@
 							<ol class="breadcrumb">
 								<li><a href="#c" ng-click="showContent('wstepniak')">Home</a></li>
 								<li ng-repeat="okruszek in galeria.okruszki" ng-show="currentEkran=='galeria'">
-									<a href="#c" ng-click="updateGaleryFromOkruszki($index)" ng-class="{ 'text_color' : $last }">{{okruszek.text}}</a>
+									<a ui-sref="uiRouterState({ ID: correctHistory($index,'o') })" href="#c" ng-click="updateGaleryFromOkruszki($index)" ng-class="{ 'text_color' : $last }">{{okruszek.text}}</a>
 								</li>
 								<li ng-show="currentEkran=='zestawienie'">
 									<a href="#c" ng-click="showContent(currentEkran)" ng-class="{ 'text_color' : $last }">Zestawienie</a>
@@ -184,10 +186,10 @@
 				<!-- Galeria folderow -->
 				<div class="row" id="id_foldery">
 					<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 foldery-margin" ng-repeat="folder in galeria.foldery" ng-if="galeria.foldery.length>0 && currentEkran=='galeria'">
-						<a class="text-center thumbnail foldery-a-margin" href="#c" ng-click="updateGalery($index)">
+						<a ui-sref="uiRouterState({ ID: correctHistory($index,'g') })" class="text-center thumbnail foldery-a-margin" ng-click="updateGalery($index)">
 							<img ng-src="{{galeria.url}}/{{folder.img}}" ng-class="{ 'galeria-img-width' : withThumb($index) }"/>
 						</a>
-						<p class="text-center folder-text foldery-p-margin" ng-click="updateGalery($index)" ng-bind-html="prepareFolderDescription($index)"/>
+						<p ui-sref="uiRouterState({ ID: correctHistory($index,'g') })" class="text-center folder-text foldery-p-margin" ng-click="updateGalery($index)" ng-bind-html="prepareFolderDescription($index)"/>
 						<galeria-element galeria-item="{{$index+1}}" galeria-count="{{galeria.foldery.length}}"/>
 					</div>
 				</div>		
@@ -208,6 +210,7 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="list-group">
+										<!--<a ui-sref="uiRouterState({ locationId: getLocationForUiRouterFromZestawienie($index) })" class="list-group-item" ng-repeat="wycieczka in rok.wycieczki" ng-click="updateGaleryFromZestawienie($index)">-->
 										<a href="#c" class="list-group-item" ng-repeat="wycieczka in rok.wycieczki" ng-click="updateGaleryFromZestawienie($index)">
 											<h4 class="list-group-item-heading">{{wycieczka.opis}}<small> {{wycieczka.data}}</small></h4>
 											<p class="list-group-item-text">
@@ -295,8 +298,8 @@
 						<div class="col-xs-12 list-group-item thumbnail grid-item" ng-repeat="aktualnosc in aktualnosci" ng-if="aktualnosci.length>0">
 							<img ng-src="{{domainUrl}}/{{aktualnosc.img}}"/>
 							<div class="caption text-center">
-								<p><b>{{aktualnosc.data}}</b> {{aktualnosc.text}}</p>
-								<p><a class="btn btn-primary" href="#c" ng-click="updateGaleryFromAktualnosci($index)">{{aktualnosc.button}}<br/>zobacz więcej</a></p>
+								<p><b>{{aktualnosc.correctedData}}</b> {{aktualnosc.text}}</p>
+								<p><a ui-sref="uiRouterState({ ID: correctHistory($index,'a') })" class="btn btn-primary" href="#c" ng-click="updateGaleryFromAktualnosci($index)">{{aktualnosc.button}}<br/>zobacz więcej</a></p>
 							</div>
 						</div>
 					</div>
