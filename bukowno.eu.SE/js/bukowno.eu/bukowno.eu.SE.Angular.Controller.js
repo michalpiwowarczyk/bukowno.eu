@@ -37,7 +37,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 	$scope.init = function() {
 		$scope.galeria = $scope.emptyGaleria;
 		$scope.getOstatniaAktualizacjaJson();
-		$scope.showContent('wstepniak',false);
+		$scope.showContent('wstepniak',true);
 		$scope.getAktualnosciJson();
 		$scope.getLataDlaZestawieniaJson();
 		$scope.getZestawienieJson();
@@ -258,8 +258,10 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 	
 	$scope.updateGaleryFromHref = function(href) {		
 		if(href=="/") {
+			$scope.showContent("wstepniak",false);
 			return;
 		}
+		
 		var checked = false;
 		var toCheckArray = ['g','m','o','a','c','z','d','k','s','r','y'];
 		
