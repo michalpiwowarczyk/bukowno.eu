@@ -43,28 +43,28 @@
 							<span class="icon-bar"/>
 							<span class="icon-bar"/>
 						</button>
-						<a class="navbar-brand" href="http://bukowno.eu">bukowno.eu</a>
+						<a ui-sref="uiRouterState({ ID: correctHistory('wstepniak','c') })" class="navbar-brand" href="http://bukowno.eu">bukowno.eu</a>
 					</div>			
 
 					<nav class="collapse navbar-collapse menu-container" id="id_menu_up">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#c" ng-click="showContent('wstepniak')">Start</a></li>
+							<li class="active"><a ui-sref="uiRouterState({ ID: correctHistory('wstepniak','c') })" href="#c" ng-click="showContent('wstepniak',true)">Start</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Góry <span class="caret"/></a>
 								<ul class="dropdown-menu">
 									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria')">Galeria</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#c" ng-click="showContent('kalendarz')">Kalendarz</a></li>
-									<li><a href="#c" ng-click="showContent('zestawienie')">Zestawienie</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('kalendarz','c') })" href="#c" ng-click="showContent('kalendarz',true)">Kalendarz</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('zestawienie','c') })" href="#c" ng-click="showContent('zestawienie',true)">Zestawienie</a></li>
 									<li><a href="http://beskidy.bukowno.eu/mpw/beskidy.bukowno.eu/utils/mapa.php?m=SE">Mapa</a></li>
 									<li role="separator" class="divider"></li>
 									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/51_3_ZewnetrzneKarpatyZachodnie','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/51_3_ZewnetrzneKarpatyZachodnie')">Beskidy</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromModelData('tatry')">Tatry</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('tatry','d') })" href="#c" ng-click="updateGaleryFromModelData('tatry',true)">Tatry</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#c" ng-click="updateGaleryFromModelData('alpy')">Alpy</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromModelData('pirenejeapeniny')">Pireneje, Apeniny</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('alpy','d') })" href="#c" ng-click="updateGaleryFromModelData('alpy',true)">Alpy</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('pirenejeapeniny','d') })" href="#c" ng-click="updateGaleryFromModelData('pirenejeapeniny',true)">Pireneje, Apeniny</a></li>
 									<li role="separator" class="divider"></li>
 									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/341_3_WyzynaKrakowskoCzestochowska/341_32_WyzynaOlkuska','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/341_3_WyzynaKrakowskoCzestochowska/341_32_WyzynaOlkuska')">Jura</a></li>
-									<li><a href="#c" ng-click="updateGaleryFromModelData('sudety')">Sudety</a></li>
+									<li><a ui-sref="uiRouterState({ ID: correctHistory('sudety','d') })" href="#c" ng-click="updateGaleryFromModelData('sudety',true)">Sudety</a></li>
 								</ul>
 							</li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wyjazdy <span class="caret"/></a>				
@@ -98,8 +98,8 @@
 									<li><a ui-sref="uiRouterState({ ID: correctHistory('galeria/PoGodzinach/WWII&r=../bukowno.eu.SE','m') })" href="#c" ng-click="updateGaleryFromMenu('galeria/PoGodzinach/WWII&r=../bukowno.eu.SE')">WW II</a></li>
 								</ul>
 							</li>			
-							<li><a href="#c" ng-click="showContent('random')">Pokaz slajdów</a></li>
-							<li><a href="#c" ng-click="showContent('kontakt')">Kontakt</a></li>
+							<li><a ui-sref="uiRouterState({ ID: correctHistory('random','c') })" href="#c" ng-click="showContent('random',true)">Pokaz slajdów</a></li>
+							<li><a ui-sref="uiRouterState({ ID: correctHistory('kontakt','c') })" href="#c" ng-click="showContent('kontakt',true)">Kontakt</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -119,7 +119,7 @@
 								<div class="swiper_caption">
 									<h2>{{slide.h}}</h2>
 									<p>{{slide.text}}</p>
-									<p><a class="btn btn-lg btn-primary" href="#c" ng-click="updateGaleryFromSlider($index)" role="button">{{slide.button}}</a></p>
+									<p><a ui-sref="uiRouterState({ ID: correctHistory($index,'s') })" class="btn btn-lg btn-primary" href="#c" ng-click="updateGaleryFromSlider($index)" role="button">{{slide.button}}</a></p>
 								</div>
 							</div>
 						</div>
@@ -149,15 +149,15 @@
 						</div>
 						<div class="cols-xs-9">
 							<ol class="breadcrumb">
-								<li><a href="#c" ng-click="showContent('wstepniak')">Home</a></li>
+								<li><a ui-sref="uiRouterState({ ID: correctHistory('wstepniak','c') })" href="#c" ng-click="showContent('wstepniak',true)">Home</a></li>
 								<li ng-repeat="okruszek in galeria.okruszki" ng-show="currentEkran=='galeria'">
 									<a ui-sref="uiRouterState({ ID: correctHistory($index,'o') })" href="#c" ng-click="updateGaleryFromOkruszki($index)" ng-class="{ 'text_color' : $last }">{{okruszek.text}}</a>
 								</li>
 								<li ng-show="currentEkran=='zestawienie'">
-									<a href="#c" ng-click="showContent(currentEkran)" ng-class="{ 'text_color' : $last }">Zestawienie</a>
+									<a ui-sref="uiRouterState({ ID: correctHistory(currentEkran,'c') })" href="#c" ng-click="showContent(currentEkran,true)" ng-class="{ 'text_color' : $last }">Zestawienie</a>
 								</li>
 								<li ng-show="currentEkran=='kalendarz'">
-									<a href="#c" ng-click="showContent(currentEkran)" ng-class="{ 'text_color' : $last }">Kalendarz</a>
+									<a ui-sref="uiRouterState({ ID: correctHistory(currentEkran,'c') })" href="#c" ng-click="showContent(currentEkran,true)" ng-class="{ 'text_color' : $last }">Kalendarz</a>
 								</li>
 							</ol>
 						</div>
@@ -199,7 +199,7 @@
 					<div class="col-xs-12">
 						<ul class="nav nav-tabs">
 							<li ng-class="{ 'active' : zestawienie[$index].rok==getCurrentYear() }" ng-repeat="rok in lata">
-								<a class="text_color nav-zestawienie" ng-href="#id_zestawienieRok{{rok}}" data-toggle="tab" data-rok="{{rok}}" ng-click="setCurrentYear(rok)">{{rok}}</a>
+								<a ui-sref="uiRouterState({ ID: correctHistory(rok,'r') })" class="text_color nav-zestawienie" ng-href="#id_zestawienieRok{{rok}}" data-toggle="tab" data-rok="{{rok}}" ng-click="setCurrentYear(rok)">{{rok}}</a>
 							</li>
 						</ul>
 					</div>
@@ -210,8 +210,7 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="list-group">
-										<!--<a ui-sref="uiRouterState({ locationId: getLocationForUiRouterFromZestawienie($index) })" class="list-group-item" ng-repeat="wycieczka in rok.wycieczki" ng-click="updateGaleryFromZestawienie($index)">-->
-										<a href="#c" class="list-group-item" ng-repeat="wycieczka in rok.wycieczki" ng-click="updateGaleryFromZestawienie($index)">
+										<a ui-sref="uiRouterState({ ID: correctHistory($index,'z') })" href="#c" class="list-group-item" ng-repeat="wycieczka in rok.wycieczki" ng-click="updateGaleryFromZestawienie($index)">
 											<h4 class="list-group-item-heading">{{wycieczka.opis}}<small> {{wycieczka.data}}</small></h4>
 											<p class="list-group-item-text">
 												<span ng-show="wycieczka.km">dystans {{wycieczka.km}}, </span>
@@ -234,7 +233,7 @@
 					<div class="col-xs-12">
 						<ul class="nav nav-tabs">
 							<li ng-class="{ 'active' : zestawienie[$index].rok==getCurrentYear() }" ng-repeat="rok in lata">
-								<a class="text_color nav-zestawienie" ng-href="#id_kalendarzRok{{rok}}" data-toggle="tab" data-rok="{{rok}}" ng-click="setCurrentYear(rok)">{{rok}}</a>
+								<a ui-sref="uiRouterState({ ID: correctHistory(rok,'y') })" class="text_color nav-zestawienie" ng-href="#id_kalendarzRok{{rok}}" data-toggle="tab" data-rok="{{rok}}" ng-click="setCurrentYear(rok)">{{rok}}</a>
 							</li>
 						</ul>
 					</div>
@@ -311,7 +310,7 @@
 		<section class="row">
 			<div class="list-group" id="id_banery">
 				<div class="col-md-3 col-sm-6 col-xs-12 grid-item baner_dolny_item" ng-repeat="kafelek in kafelkiDolne">
-					<a class="list-group-item {{kafelek.class}}" href="#c" ng-click="updateGaleryFromKafelkiDolne($index)">
+					<a ui-sref="uiRouterState({ ID: correctHistory($index,'k') })" class="list-group-item {{kafelek.class}}" href="#c" ng-click="updateGaleryFromKafelkiDolne($index)">
 						<h4 class="list-group-item-heading">{{kafelek.h}}</h4>
 						<p class="list-group-item-text" id="id_banery_item{{$index + 1}}">{{kafelek.text}}</p>
 					</a>

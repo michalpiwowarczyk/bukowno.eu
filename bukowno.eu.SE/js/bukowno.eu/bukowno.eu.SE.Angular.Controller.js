@@ -37,7 +37,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 	$scope.init = function() {
 		$scope.galeria = $scope.emptyGaleria;
 		$scope.getOstatniaAktualizacjaJson();
-		$scope.showContent('wstepniak');								
+		$scope.showContent('wstepniak',false);
 		$scope.getAktualnosciJson();
 		$scope.getLataDlaZestawieniaJson();
 		$scope.getZestawienieJson();
@@ -61,7 +61,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		var serviceUrl = $scope.domainUrl+"/index.php";
 		var url = serviceUrl + "?j=d&ch=galeria&d=" + $scope.currentDirectory;
 		$scope.getJson(url, 'galeria');
-		$scope.showContent('galeria');
+		$scope.showContent('galeria',false);
 	};
 	
 	//  Pobranie JSONa z zawartością aktualności
@@ -168,7 +168,6 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		$scope.currentDirectory = $scope.galeria.foldery[pos].directory+"&r="+$scope.galeria.galeriaDir;
 		$scope.getGalleryJson();
 		$scope.getAktualnosciJson();				
-		//$scope.moveToContent();
 		$scope.locationChangedFromPage = true;
 	}
 	
@@ -191,6 +190,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		$scope.currentDirectory = $scope.slider[pos].href;
 		$scope.getGalleryJson();
 		$scope.getAktualnosciJson();
+		$scope.locationChangedFromPage = true;
 	}
 
 	$scope.updateGaleryFromKafelkiDolne = function(pos) {
@@ -198,6 +198,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		$scope.getGalleryJson();
 		$scope.getAktualnosciJson();
 		$scope.moveToContent();
+		$scope.locationChangedFromPage = true;
 	}
 
 	$scope.updateGaleryFromMenu = function(href) {
@@ -206,10 +207,10 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		$scope.getGalleryJson();
 		$scope.getAktualnosciJson();
 		$scope.locationChangedFromPage = true;
-		hideOpenedMenu();
+		hideOpenedMenu();		
 	}
 
-	$scope.updateGaleryFromModelData = function(dane) {
+	$scope.updateGaleryFromModelData = function(dane,mode) {
 		$scope.currentEkran = 'galeria';
 		if(dane=='tatry') {
 			$scope.galeria = modelGaleriaTatry;
@@ -227,6 +228,9 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		modelGalleryItems = null;
 		modelGalleryItems = $scope.createGalleryItemsTable($scope.galeria);
 		hideOpenedMenu();				
+		if(mode) {
+			$scope.locationChangedFromPage = mode;
+		}
 	}
 
 	$scope.updateGaleryFromZestawienie = function(pos) {
@@ -244,6 +248,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 			$scope.getGalleryJson();
 			$scope.getAktualnosciJson();			
 			$scope.moveToContent();
+			$scope.locationChangedFromPage = true;
 		}
 	}
 
@@ -256,7 +261,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 			return;
 		}
 		var checked = false;
-		var toCheckArray = ['g','m','o','a'];
+		var toCheckArray = ['g','m','o','a','c','z','d','k','s','r','y'];
 		
 		var mode = '';
 		var i;
@@ -272,7 +277,34 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		if(!checked) {
 			return;
 		}		
+		// wyłączenie okna modalnego pokazu slajdow
+		var modalOpened = $('#id_randomWithModal').is(":visible"); 
+		if(modalOpened) {
+			$('#id_randomWithModal').modal('toggle');
+		}
+		
 		href = href.replace(/~2F/g,'/');
+		if(mode=="d") {
+			$scope.updateGaleryFromModelData(href,false);
+			return;
+		}
+		if(mode=="c") {
+			$scope.showContent(href,false);
+			if(href == "random") {
+				$('#id_randomInside').show();
+			}
+			return;
+		}
+		// w historii powracamy do zakładki z latami w zestawieniu
+		if(mode=="r") {
+			$scope.showContent("zestawienie",false);
+			return;		
+		}		 
+		// w historii powracamy do zakładki z latami w kalendarzu
+		if(mode=="y") {
+			$scope.showContent("kalendarz",false);
+			return;
+		}		 
 		
 		if(mode=='m') {
 			$scope.currentEkran = 'galeria';
@@ -283,17 +315,17 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		if(mode=='m') {
 			hideOpenedMenu();
 		}		
-		if(mode=='a') {
+		if(mode=='a' || mode=='z' || mode=='k') {
 			$scope.moveToContent();
 		}
 	}
 	
 	$scope.correctHistory = function (pos,mode) {
-		var href = "";
+		var href = "/";
 		if(mode=="g") {
 			href = $scope.galeria.foldery[pos].directory+"&r="+$scope.galeria.galeriaDir;
 		}
-		if(mode=="m") {
+		if(mode=="m" || mode=="d" || mode=="c") {
 			href = pos;
 		}
 		if(mode=="o") {
@@ -301,6 +333,28 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		}
 		if(mode=="a") {
 			href = $scope.aktualnosci[pos].href;
+		}
+		if(mode=="z") {
+			var i = 0;
+			var ok = false;
+			while (i<$scope.zestawienie.length) {
+				if($scope.zestawienie[i].rok == $scope.getCurrentYear()) {
+					ok = true;
+					break;
+				}
+				++i;
+			}
+			if(ok) {
+				if(pos<$scope.zestawienie[i].wycieczki.length) {					
+					href = $scope.zestawienie[i].wycieczki[pos].href;
+				}
+			}
+		}
+		if(mode=="s") {
+			href = $scope.slider[pos].href;
+		}
+		if(mode=="k") {
+			href = $scope.kafelkiDolne[pos].href;
 		}
 		return "mode="+mode+"&state="+href;
 	}
@@ -350,7 +404,7 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		}
 	}
 
-	$scope.showContent = function(ekran) {
+	$scope.showContent = function(ekran,mode) {
 		$scope.currentEkran = ekran;				
 		if (ekran=='zestawienie') {
 			$scope.pageTitle = 'Zestawienie';
@@ -375,6 +429,9 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 			$scope.pageTitle = $scope.galeria.title;
 		}
 		hideOpenedMenu();
+		if(mode) {
+			$scope.locationChangedFromPage = mode;
+		}
 	}
 	
 	$scope.getCurrentYear = function() {
@@ -490,8 +547,11 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 	}
 
 	$scope.moveToContent = function() {
+		/*
 		$location.hash('id_a_content');
 		$anchorScroll();
+		*/
+		$anchorScroll('id_a_content');
 	}
 
 	$interval(function() {
