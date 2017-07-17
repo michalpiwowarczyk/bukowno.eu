@@ -41,12 +41,18 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 		$scope.getAktualnosciJson();
 		$scope.getLataDlaZestawieniaJson();
 		$scope.getZestawienieJson();
+		$scope.updateGaleryFromHref($location.path());
+	}
+
+	$scope.checkCallParameters = function() {
 		// sprawdzenie parametrów wywołania				
 		// index.html#!/?d=20130822
 		if($location.search().hasOwnProperty("d")) {
 			//console.log("Parametr wejsciowy = "+$location.search().d);
 			$scope.getGaleryFromDate($location.search().d);
+			return true;
 		}
+		return false;
 	}
 	
 	// 	Pobranie JSONa z nazwą galerii dla podanej daty, pobranie odpowiedniej galerii
@@ -257,6 +263,9 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 	}
 	
 	$scope.updateGaleryFromHref = function(href) {		
+		if($scope.checkCallParameters()) {
+			return;
+		}		
 		if(href=="/") {
 			$scope.showContent("wstepniak",false);
 			return;
@@ -591,7 +600,10 @@ bukownoApp.controller("bukownoCtrl", function ($scope,$route,$http,$location,$in
 	$scope.$watch(function() {
 		return $location.path();
 	}, function(value) {
-		if(!$scope.locationChangedFromPage) {			
+		if(!$scope.locationChangedFromPage) {
+			if($location.search().hasOwnProperty("d")) {
+				value = value + "?" + $location.search().d;
+			}
 			$scope.updateGaleryFromHref(value);
 		}
 		$scope.locationChangedFromPage = false;
